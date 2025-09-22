@@ -29,8 +29,7 @@ export const getWeatherByCity = async (
 
   try {
     const response = await fetch(
-      `${API_URL}?q=${city}&units=metric&appid=${API_KEY}`
-    );
+      `${API_URL}?q=${encodeURIComponent(city)}&units=metric&appid=${API_KEY}`    );
 
     if (!response.ok) {
       // Handle HTTP errors
