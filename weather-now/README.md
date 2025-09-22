@@ -56,7 +56,15 @@ yarn install
 pnpm install
 ```
 
-3. Start the development server:
+3. Create environment variables:
+   - Create a `.env.local` file in the project root
+   - Add your OpenWeatherMap API key:
+   ```bash
+   NEXT_PUBLIC_OPENWEATHER_API_KEY=your_api_key_here
+   ```
+   - Get your free API key from [OpenWeatherMap](https://openweathermap.org/api)
+
+4. Start the development server:
 ```bash
 npm run dev
 # or
@@ -67,7 +75,7 @@ pnpm dev
 bun dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) to view the application.
+5. Open [http://localhost:3000](http://localhost:3000) to view the application.
 
 ## 📋 Current Features
 
@@ -75,6 +83,8 @@ bun dev
 - [x] Project setup with Next.js, TypeScript, and Tailwind CSS
 - [x] Feature-based directory structure
 - [x] WeatherCard component with TypeScript interfaces
+- [x] Weather API service with error handling
+- [x] TypeScript interfaces for API responses
 - [x] Responsive design with Tailwind CSS
 - [x] Clean component architecture
 
@@ -92,7 +102,7 @@ bun dev
 - [ ] Offline support with PWA
 - [ ] Unit and integration tests
 
-## 🧩 Components
+## 🧩 Components & Services
 
 ### WeatherCard
 A reusable component for displaying weather information:
@@ -110,7 +120,23 @@ A reusable component for displaying weather information:
 - `temperature` (number): Temperature in Celsius
 - `description` (string): Weather description
 
-## 🎨 Naming Conventions
+### Weather API Service
+The `weatherService.ts` provides methods for fetching weather data:
+
+```tsx
+import { getWeatherByCity } from '@/api/weatherService';
+
+const weatherData = await getWeatherByCity('London');
+if (weatherData) {
+  console.log(`Temperature in ${weatherData.name}: ${weatherData.main.temp}°C`);
+}
+```
+
+**Features:**
+- TypeScript interfaces for API responses
+- Proper error handling with try/catch
+- Environment variable configuration
+- Returns `null` on failure for safe handling## 🎨 Naming Conventions
 
 - **Files & Folders**: kebab-case (`weather-card.tsx`, `weather-feature/`)
 - **Components**: PascalCase (`WeatherCard`, `WeatherPage`)
