@@ -1,7 +1,7 @@
 // src/api/weatherService.ts
 
 // Define a type for the data we care about from the API response
-interface WeatherApiResponse {
+export interface WeatherApiResponse {
   name: string;
   main: {
     temp: number;
