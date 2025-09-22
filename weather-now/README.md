@@ -1,9 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WeatherNow 🌤️
 
-## Getting Started
+A modern, responsive weather application built with Next.js, TypeScript, and Tailwind CSS. WeatherNow provides real-time weather information with a clean, intuitive interface following a feature-based architecture.
 
-First, run the development server:
+## 🚀 Tech Stack
 
+- **Framework**: [Next.js 15](https://nextjs.org) - React framework with SSR/SSG capabilities
+- **Language**: [TypeScript](https://www.typescriptlang.org/) - Type-safe JavaScript
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- **Components**: [@shadcn/ui](https://ui.shadcn.com/) - Accessible, pre-styled components
+- **State Management**: React Context API and Hooks
+- **Testing**: Jest and React Testing Library
+
+## 📁 Project Architecture
+
+The project follows a feature-based architecture for better maintainability and scalability:
+
+```
+src/
+├── api/             # API service logic (weatherService.ts)
+├── assets/          # Static files (icons, images)
+├── components/      # Reusable UI components
+│   └── ui/          # shadcn/ui components
+├── features/        # Feature-specific modules
+│   └── weather/
+│       ├── components/  # Weather-specific components
+│       ├── hooks/       # Weather-related custom hooks
+│       └── WeatherPage.tsx
+├── hooks/           # Global custom hooks
+├── lib/             # Utility functions and helpers
+├── pages/           # Next.js pages (routes)
+└── styles/          # Global styles
+```
+
+## 🛠️ Development Setup
+
+### Prerequisites
+
+- Node.js 18+
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/AnnCKaroki/weather-app.git
+cd weather-now
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+3. Start the development server:
 ```bash
 npm run dev
 # or
@@ -14,23 +67,100 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📋 Current Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### ✅ Completed
+- [x] Project setup with Next.js, TypeScript, and Tailwind CSS
+- [x] Feature-based directory structure
+- [x] WeatherCard component with TypeScript interfaces
+- [x] Responsive design with Tailwind CSS
+- [x] Clean component architecture
 
-## Learn More
+### 🚧 In Progress
+- [ ] Weather API integration
+- [ ] Location-based weather fetching
+- [ ] Dynamic weather icons
+- [ ] Error handling and loading states
 
-To learn more about Next.js, take a look at the following resources:
+### 📅 Planned
+- [ ] Multi-city weather comparison
+- [ ] Weather forecasts (5-day)
+- [ ] Geolocation support
+- [ ] Dark/light theme toggle
+- [ ] Offline support with PWA
+- [ ] Unit and integration tests
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🧩 Components
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### WeatherCard
+A reusable component for displaying weather information:
 
-## Deploy on Vercel
+```tsx
+<WeatherCard
+  cityName="New York"
+  temperature={22}
+  description="Partly cloudy"
+/>
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Props:**
+- `cityName` (string): Name of the city
+- `temperature` (number): Temperature in Celsius
+- `description` (string): Weather description
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🎨 Naming Conventions
+
+- **Files & Folders**: kebab-case (`weather-card.tsx`, `weather-feature/`)
+- **Components**: PascalCase (`WeatherCard`, `WeatherPage`)
+- **Functions & Variables**: camelCase (`getWeatherData`, `isLoading`)
+- **Custom Hooks**: use prefix (`useWeatherData`, `useLocalStorage`)
+- **Types & Interfaces**: PascalCase (`WeatherData`, `ApiResponse`)
+
+## 🧪 Testing
+
+```bash
+# Run tests
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Run tests with coverage
+npm run test:coverage
+```
+
+## 📝 Contributing
+
+1. Follow the established coding conventions
+2. Write tests for new features
+3. Update documentation as needed
+4. Submit pull requests for review
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+
+The easiest way to deploy is using [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme):
+
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Deploy automatically on every push
+
+For more deployment options, check the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying).
+
+## 📖 Learn More
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [React Documentation](https://react.dev/)
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+---
+
+Built with ❤️ using Next.js and modern web technologies.
